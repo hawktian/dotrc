@@ -1,0 +1,26 @@
+startup_message off
+chdir
+autodetach on
+defscrollback 2000
+vbell off
+
+#caption always "%{= dd}%-w%{+bu}%n %t%{-}%+w"
+
+#caption always '%{= kg}[%{G}%H%{g}][%= %{= kw}%?%-Lw%?%{+b r}(%{y}%n %t%?(%u)%?%{r})%{= w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+#shelltitle "name:cmd"
+
+hardstatus on
+hardstatus alwayslastline '%{gk}[ %{gk}%H %` %{gk}]%{gk}[%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}]%{=b C}[ %c ]%{W}'
+#hardstatus alwayslastline '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %m/%d %c ]%{W}'
+
+termcapinfo xterm ti@:te@
+
+termcapinfo linux* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+termcapinfo xterm* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+
+shell                 zsh
+#shelltitle            "$ |bash"
+
+escape ^oo
+backtick 0 30 30 sh -c 'screen -ls | grep --color=no -o "$PPID[^[:space:]]*" |cut -d. -f2'

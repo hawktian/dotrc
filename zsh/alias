@@ -1,0 +1,15 @@
+alias cp='cp -i'
+
+alias gs='screen -r S1'
+
+alias gs1='screen -r S1'
+
+alias gs2='screen -r S2'
+
+alias grs='git remote show'
+
+alias grso='git remote show origin'
+
+alias glom='git pull origin master'
+
+alias ghom='git push origin master'
