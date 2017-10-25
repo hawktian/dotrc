@@ -84,6 +84,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source ~/melonRC/zsh/alias
-source ~/melonRC/zsh/color
+source ~/MelonRC/zsh/alias
+source ~/MelonRC/zsh/color
 source ~/.alias.local
