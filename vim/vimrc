@@ -44,6 +44,8 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 colorscheme melon
+set relativenumber
+set history=30
 set ruler
 set nu
 set shiftwidth=4
