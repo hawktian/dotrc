@@ -13,3 +13,5 @@ alias grso='git remote show origin'
 alias glom='git pull origin master'
 
 alias ghom='git push origin master'
+
+alias gitb='git add .;git ci -m "a";git push origin master;'
