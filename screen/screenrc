@@ -1,26 +1,31 @@
 startup_message off
-chdir
+
+# if we accidentally hangup, don't be all attached when we come back. 
 autodetach on
-defscrollback 2000
-vbell off
 
-#caption always "%{= dd}%-w%{+bu}%n %t%{-}%+w"
+# more scrollbacks!
+defscrollback 10000
 
-#caption always '%{= kg}[%{G}%H%{g}][%= %{= kw}%?%-Lw%?%{+b r}(%{y}%n %t%?(%u)%?%{r})%{= w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
-#shelltitle "name:cmd"
+# disable use of the "alternate" terminal
+# thus allowing scrollbars to function as normal in
+# many terminal emulators! <3 it
+termcapinfo xterm* ti@:te@
 
-hardstatus on
-hardstatus alwayslastline '%{gk}[ %{gk}%H %` %{gk}]%{gk}[%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}]%{=b C}[ %c ]%{W}'
-#hardstatus alwayslastline '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %m/%d %c ]%{W}'
+# have screen update terminal emulators titlebar
+termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+defhstatus "screen ^E (^Et) | $USER@^EH"
 
-termcapinfo xterm ti@:te@
-
-termcapinfo linux* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-termcapinfo xterm* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-
+# but dont print i.e. "bell in window 0" status craps
+#hardstatus off
 
 shell                 zsh
-#shelltitle            "$ |bash"
+shelltitle "$ |bash"
 
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%{W}%c %{g}]'
+
+defflow off
+
+#rvm needs this
+#shell -${SHELL}
 escape ^oo
-backtick 0 30 30 sh -c 'screen -ls | grep --color=no -o "$PPID[^[:space:]]*" |cut -d. -f2'
