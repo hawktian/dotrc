@@ -49,5 +49,6 @@
 [ampify]
     branch-build = true
 [user]
-	email = itonvin@gmail.com
+	email = tian@tonvin.net
 	name = Tonvin Tian
+	useconfigonly = true

@@ -6,7 +6,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
-Plugin 'vim-vdebug/vdebug'
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -15,12 +14,13 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
+Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -63,7 +63,6 @@ set fencs=utf-8,gbk
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,gb2312,ucs-bom,cp936,big5,latin1
-set termencoding=utf-8,gb2312
 set laststatus=2
 set cmdheight=2
 set ff=unix
@@ -72,6 +71,7 @@ set cursorline
 set statusline=%F%m%r%h%w
 set tabpagemax=32
 set tags=./tags;,tags;
+set autochdir
 
 map <C-S> :!/bin/sh %<CR>
 map <C-J> :!tail /tmp/errors.log<CR>
