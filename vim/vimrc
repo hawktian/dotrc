@@ -63,6 +63,7 @@ set fencs=utf-8,gbk
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,gb2312,ucs-bom,cp936,big5,latin1
+set termencoding=utf-8
 set laststatus=2
 set cmdheight=2
 set ff=unix
@@ -78,5 +79,5 @@ map <C-J> :!tail /tmp/errors.log<CR>
 map <C-P> :!python %<CR>
 map <C-L> :!php -ln %<CR>
 map <C-F> :!php -f %<CR>
-map <C-P> :!/usr/bin/python3.4 %<CR>
+map <C-P> :!/usr/bin/python3 %<CR>
 map <C-C> :!gcc % -otmp && ./tmp<CR>
