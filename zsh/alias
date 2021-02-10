@@ -16,4 +16,4 @@ alias ghom='git push origin master'
 
 alias gitb='git add .;git ci -m "a";git pull origin master;git push origin master;'
 
-alias p='/usr/bin/python3'
+alias py='/usr/bin/python3'
