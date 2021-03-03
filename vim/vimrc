@@ -73,6 +73,7 @@ set statusline=%F%m%r%h%w
 set tabpagemax=32
 set tags=./tags;,tags;
 set autochdir
+set shell=/usr/bin/zsh
 
 map <C-S> :!/bin/sh %<CR>
 map <C-J> :!tail /tmp/errors.log<CR>
