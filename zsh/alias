@@ -10,11 +10,15 @@ alias grs='git remote show'
 
 alias grso='git remote show origin'
 
-alias glom='git pull origin master'
+alias gl='git pull origin master'
 
-alias ghom='git push origin master'
+alias gp='git push origin master'
 
 alias gitb='git add .;git ci -m "a";git pull origin master;git push origin master;'
+
+alias go='git add .;git ci -m "a";git pull origin master;git push origin master;'
+
+alias gh='git add .;git ci -m "a";git pull github master;git push github master;'
 
 alias py='/usr/bin/python3'
 
