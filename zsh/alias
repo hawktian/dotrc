@@ -16,8 +16,6 @@ alias gp='git push origin master'
 
 alias gitb='git add .;git ci -m "a";git pull origin master;git push origin master;'
 
-alias go='git add .;git ci -m "a";git pull origin master;git push origin master;'
-
 alias gh='git add .;git ci -m "a";git pull github master;git push github master;'
 
 alias py='/usr/bin/python3'
