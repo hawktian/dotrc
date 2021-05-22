@@ -27,6 +27,7 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -75,6 +76,7 @@ set tags=./tags;,tags;
 set autochdir
 set shell=/usr/bin/zsh
 
+
 map <C-S> :!/bin/sh %<CR>
 map <C-J> :!tail /tmp/errors.log<CR>
 map <C-P> :!python %<CR>
@@ -82,3 +84,4 @@ map <C-L> :!php -ln %<CR>
 map <C-F> :!php -f %<CR>
 map <C-P> :!/usr/bin/python3 %<CR>
 map <C-C> :!gcc % -otmp && ./tmp<CR>
+map <C-G> :!go build %<CR>
