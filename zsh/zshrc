@@ -103,7 +103,7 @@ function gitb(){
             echo "there are some errors after pulling from origin";
         fi
     else
-        #`git pull origin ${branch}`
+        git pull origin ${branch}
     fi
 }
 
