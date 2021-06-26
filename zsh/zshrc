@@ -84,6 +84,28 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+#
+function gitb(){
+    branch=`git symbolic-ref --short HEAD`
+    echo "current branch:${branch}"
+    if [ -n "$(git status --porcelain)" ]; then
+        echo "there are modified files";
+        echo "git add";
+        git add .
+        echo "git commit";
+        git commit -m "a"
+        echo "git pull origin ${branch}";
+        git pull origin ${branch}
+        if [ -z "$(git status --porcelain)" ]; then
+            git push origin ${branch}
+        else
+            echo "there are some errors after pulling from origin";
+        fi
+    else
+        #`git pull origin ${branch}`
+    fi
+}
 
 source ~/MelonRC/zsh/alias
 source ~/MelonRC/zsh/color
