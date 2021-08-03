@@ -107,6 +107,14 @@ function gitb(){
     fi
 }
 
+function p(){
+    if [ $# -eq 0 ]
+          then
+              echo "No arguments supplied"
+    fi
+    grep -Rl $1 . --exclude "*.js"  --exclude "*.vue" --exclude "*.json" --exclude "*.css" --exclude "*.html"
+}
+
 source ~/MelonRC/zsh/alias
 source ~/MelonRC/zsh/color
 source ~/.alias.local
