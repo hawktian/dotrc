@@ -112,7 +112,7 @@ function p(){
           then
               echo "No arguments supplied"
     fi
-    grep -Rl $1 . --exclude "*.js"  --exclude "*.vue" --exclude "*.json" --exclude "*.css" --exclude "*.html"
+    grep -Rl $1 . --include "*.php"
 }
 
 source ~/MelonRC/zsh/alias
