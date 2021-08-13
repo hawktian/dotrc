@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'vim-vdebug/vdebug'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -75,7 +76,6 @@ set tabpagemax=32
 set tags=./tags;,tags;
 set autochdir
 set shell=/usr/bin/zsh
-
 
 map <C-S> :!/bin/sh %<CR>
 map <C-J> :!tail /tmp/errors.log<CR>

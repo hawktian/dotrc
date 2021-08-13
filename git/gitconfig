@@ -34,11 +34,6 @@
     ci = commit
     br = branch
     co = checkout
-    df = diff
-    da = diff HEAD
-    ds = diff --staged
-    lf = log --oneline --no-merges --
-    rh = reset HEAD
     gp = log --date=\"short\" --format=\"%C(yellow)%h%Creset [%cN] %C(white)%ad%Creset %s\" --graph
     lp = log -p
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
@@ -49,6 +44,4 @@
 [ampify]
     branch-build = true
 [user]
-	email = tian@tonvin.net
-	name = Tonvin Tian
 	useconfigonly = true
