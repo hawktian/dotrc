@@ -45,3 +45,4 @@
     branch-build = true
 [user]
 	useconfigonly = true
+	email = itonvin@gmail.com
