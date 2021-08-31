@@ -13,15 +13,15 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-vdebug/vdebug'
+Plugin 'zivyangll/git-blame.vim'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -77,6 +77,7 @@ set tags=./tags;,tags;
 set autochdir
 set shell=/usr/bin/zsh
 
+
 map <C-S> :!/bin/sh %<CR>
 map <C-J> :!tail /tmp/errors.log<CR>
 map <C-P> :!python %<CR>
@@ -85,3 +86,7 @@ map <C-F> :!php -f %<CR>
 map <C-P> :!/usr/bin/python3 %<CR>
 map <C-C> :!gcc % -otmp && ./tmp<CR>
 map <C-G> :!go build %<CR>
+
+let mapleader = ","
+let g:mapleader = ","
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>

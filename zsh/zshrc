@@ -113,7 +113,7 @@ function p(){
           then
               echo "No arguments supplied"
     fi
-    grep -Rl $1 . --include "*.php" --exclude-dir="logs"
+    grep -iRl $1 . --include "*.php" --exclude-dir="logs"
 }
 
 function pv(){
@@ -121,7 +121,7 @@ function pv(){
           then
               echo "No arguments supplied"
     fi
-    vim -p $(grep -Rl $1 . --include "*.php") +/$1
+    vim -p $(grep -Rl $1 . --include "*.php" --exclude-dir="logs") +/$1
 }
 
 function f(){
