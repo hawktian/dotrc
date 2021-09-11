@@ -9,7 +9,9 @@ export LC_CTYPE=en_US.UTF-8
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-ZSH_THEME="pmcgee"
+#ZSH_THEME="pmcgee"
+#ZSH_THEME="steeef"
+ZSH_THEME="gnzh"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -156,6 +158,12 @@ function glob(){
     remote=`git remote show`
     branch=` git branch --show-current`
     git pull $remote $branch
+}
+
+function ghob(){
+    remote=`git remote show`
+    branch=` git branch --show-current`
+    git push $remote $branch
 }
 
 source ~/MelonRC/zsh/alias
