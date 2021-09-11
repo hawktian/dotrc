@@ -76,6 +76,7 @@ set tabpagemax=32
 set tags=./tags;,tags;
 set autochdir
 set shell=/usr/bin/zsh
+set switchbuf=newtab
 
 
 map <C-S> :!/bin/sh %<CR>
@@ -90,3 +91,4 @@ map <C-G> :!go build %<CR>
 let mapleader = ","
 let g:mapleader = ","
 nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+map <C-\> :tab vsplit<CR>:exec("tag ".expand("<cword>"))<CR>

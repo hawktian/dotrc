@@ -132,9 +132,9 @@ function f(){
     string=$1
     substr="."
     if [ -z "${string##*$substr*}" ] ;then
-        find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1"
+        find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./.git/*" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1"
     else
-        find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1*"
+        find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./.git/*" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1*"
     fi
 }
 
@@ -150,6 +150,12 @@ function fv(){
     else
         vim -p $(find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1*")
     fi
+}
+
+function glob(){
+    remote=`git remote show`
+    branch=` git branch --show-current`
+    git pull $remote $branch
 }
 
 source ~/MelonRC/zsh/alias
