@@ -1,0 +1,12 @@
+.idea
+.vscode
+.DS_Store
+node_modules
+logs
+build
+wwwroot/dist
+wwwroot/weixin
+*.js
+*.css
+*.vue
+*.sql
