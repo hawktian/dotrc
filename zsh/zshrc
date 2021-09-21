@@ -9,7 +9,9 @@ export LC_CTYPE=en_US.UTF-8
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-ZSH_THEME="pmcgee"
+#ZSH_THEME="pmcgee"
+#ZSH_THEME="steeef"
+ZSH_THEME="gnzh"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -113,7 +115,7 @@ function p(){
           then
               echo "No arguments supplied"
     fi
-    grep -Rl $1 . --include "*.php" --exclude-dir="logs"
+    grep -iRl $1 . --include "*.php" --exclude-dir="logs"
 }
 
 function pv(){
@@ -121,7 +123,7 @@ function pv(){
           then
               echo "No arguments supplied"
     fi
-    vim -p $(grep -Rl $1 . --include "*.php") +/$1
+    vim -p $(grep -Rl $1 . --include "*.php" --exclude-dir="logs") +/$1
 }
 
 function f(){
@@ -132,9 +134,9 @@ function f(){
     string=$1
     substr="."
     if [ -z "${string##*$substr*}" ] ;then
-        find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1"
+        find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./.git/*" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1"
     else
-        find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1*"
+        find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./.git/*" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1*"
     fi
 }
 
@@ -150,6 +152,18 @@ function fv(){
     else
         vim -p $(find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1*")
     fi
+}
+
+function glob(){
+    remote=`git remote show`
+    branch=` git branch --show-current`
+    git pull $remote $branch
+}
+
+function ghob(){
+    remote=`git remote show`
+    branch=` git branch --show-current`
+    git push $remote $branch
 }
 
 source ~/MelonRC/zsh/alias
