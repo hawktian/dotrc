@@ -127,16 +127,66 @@ function pv(){
 }
 
 function f(){
+    file=$1
     if [ $# -eq 0 ]
           then
               echo "No arguments supplied"
     fi
-    string=$1
-    substr="."
-    if [ -z "${string##*$substr*}" ] ;then
-        find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./.git/*" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1"
+    if [ -z "${file##*.vue}" ] ;then
+        find . -not -name "*.json" -not -name "*.js" \
+        -not -path ".git/*" \
+        -not -path ".logs/*" \
+        -iname "*$1"
+    elif [ -z "${file##*.php}" ] ;then
+        find . -not -name "*.png" -not -name "*.jpg" -not -name "*.gif" \
+        -not -name "*.json" -not -name "*.js" -not -name "*.vue" \
+        -not -path ".git/*" \
+        -not -path ".logs/*" \
+        -not -path "./wwwroot/manager/web/*" \
+        -not -path "./standapi/*" \
+        -not -path "./bi/*" \
+        -iname "*$1"
+    elif [ -z "${file##*.js}" ] ;then
+        find . -not -name "*.png" -not -name "*.jpg" -not -name "*.gif" \
+        -not -name "*.php" -not -name "*.json" -not -name "*.vue" \
+        -not -path ".git/*" \
+        -not -path ".logs/*" \
+        -not -path "./standapi/*" \
+        -not -path "./bi/*" \
+        -iname "*$1"
     else
+        find . -not -name "*.png" -not -name "*.jpg" -not -name "*.gif" \
+        -not -name "*.json" -not -name "*.js" -not -name "*.vue" \
+        -not -path ".git/*" \
+        -not -path ".logs/*" \
+        -not -path "./wwwroot/manager/web/*" \
+        -not -path "./standapi/*" \
+        -not -path "./bi/*" \
+        -iname "*$1*"
+    fi
+    return
+    ext=$2
+    if [ $ext="" ]
+          then
+              ext="php"
+    fi
+    if [ $2="php" ] ;then
+        find . -not -name "*.png" -not -name "*.jpg" -not -name "*.gif" \
+        -not -name "*.json" -not -name "*.js" -not -name "*.vue" \
+        -not -path ".git/*" \
+        -not -path ".logs/*" \
+        -not -path "./wwwroot/manager/web/*" \
+        -not -path "./standapi/*" \
+        -not -path "./bi/*" \
+        -iname "*$1*"
+    elif [ $2="js" ] ;then
+        find .  -not -name "*.php" -not -name "*.bak" ! -path "./.git/*" ! -path "./logs/*" -iname "*$1*"
+    elif [ $2="vue" ] ;then
+        find .  -not -name "*.php" -not -name "*.js" ! -path "./.git/*" ! -path "./logs/*" -iname "*$1."
+    elif [ $2="be" ] ;then
         find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./.git/*" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1*"
+    else [ $2="fe" ] 
+        find .  -not -name "*.php" -not -name "*.bak" ! -path "./.git/*" ! -path "./logs/*" -iname "*$1*"
     fi
 }
 
