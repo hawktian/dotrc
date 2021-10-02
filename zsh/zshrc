@@ -216,6 +216,12 @@ function ghob(){
     git push $remote $branch
 }
 
+
+#check modified php file syntax
+function gcps(){
+    git ls-files --modified | xargs -L1 php -l
+}
+
 source ~/MelonRC/zsh/alias
 source ~/MelonRC/zsh/color
 source ~/.alias.local
