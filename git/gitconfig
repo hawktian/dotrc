@@ -47,3 +47,5 @@
 	useconfigonly = true
 	email = 5@lfz.life
 	name = Tonvin
+[credential]
+	helper = store

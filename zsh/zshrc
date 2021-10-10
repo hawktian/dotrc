@@ -142,6 +142,7 @@ function f(){
         -not -name "*.json" -not -name "*.js" -not -name "*.vue" \
         -not -path ".git/*" \
         -not -path ".logs/*" \
+        -not -path "./vendor/*" \
         -not -path "./wwwroot/manager/web/*" \
         -not -path "./standapi/*" \
         -not -path "./bi/*" \
