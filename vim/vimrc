@@ -82,8 +82,8 @@ set switchbuf=newtab
 map <C-S> :!/bin/sh %<CR>
 map <C-J> :!tail /tmp/errors.log<CR>
 map <C-P> :!python %<CR>
-map <C-L> :!php -ln %<CR>
-map <C-F> :!php -f %<CR>
+map <C-L> :!/usr/bin/php7.4 -ln %<CR>
+map <C-F> :!/usr/bin/php7.4 -f %<CR>
 map <C-P> :!/usr/bin/python3 %<CR>
 map <C-C> :!gcc % -otmp && ./tmp<CR>
 map <C-G> :!go build %<CR>
