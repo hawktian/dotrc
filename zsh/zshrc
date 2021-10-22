@@ -134,13 +134,13 @@ function f(){
     fi
     if [ -z "${file##*.vue}" ] ;then
         find . -not -name "*.json" -not -name "*.js" \
-        -not -path ".git/*" \
-        -not -path ".logs/*" \
+        -not -path "./.git/*" \
+        -not -path "./.logs/*" \
         -iname "*$1"
     elif [ -z "${file##*.php}" ] ;then
         find . -not -name "*.png" -not -name "*.jpg" -not -name "*.gif" \
         -not -name "*.json" -not -name "*.js" -not -name "*.vue" \
-        -not -path ".git/*" \
+        -not -path "./.git/*" \
         -not -path ".logs/*" \
         -not -path "./vendor/*" \
         -not -path "./wwwroot/manager/web/*" \
@@ -150,7 +150,7 @@ function f(){
     elif [ -z "${file##*.js}" ] ;then
         find . -not -name "*.png" -not -name "*.jpg" -not -name "*.gif" \
         -not -name "*.php" -not -name "*.json" -not -name "*.vue" \
-        -not -path ".git/*" \
+        -not -path "./.git/*" \
         -not -path ".logs/*" \
         -not -path "./standapi/*" \
         -not -path "./bi/*" \
@@ -158,8 +158,8 @@ function f(){
     else
         find . -not -name "*.png" -not -name "*.jpg" -not -name "*.gif" \
         -not -name "*.json" -not -name "*.js" -not -name "*.vue" \
-        -not -path ".git/*" \
-        -not -path ".logs/*" \
+        -not -path "./.git/*" \
+        -not -path "./.logs/*" \
         -not -path "./wwwroot/manager/web/*" \
         -not -path "./standapi/*" \
         -not -path "./bi/*" \
@@ -217,6 +217,15 @@ function ghob(){
     git push $remote $branch
 }
 
+function gfr(){
+    branch=$1
+    if [ $branch="" ] 
+        then
+          return "No arguments supplied"
+    fi
+    remote=`git remote show`
+    git fetch $remote $branch
+}
 
 #check modified php file syntax
 function gcps(){
