@@ -11,7 +11,7 @@ export LC_CTYPE=en_US.UTF-8
 
 #ZSH_THEME="pmcgee"
 #ZSH_THEME="steeef"
-ZSH_THEME="gnzh"
+ZSH_THEME="melon"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
