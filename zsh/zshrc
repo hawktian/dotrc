@@ -157,8 +157,9 @@ function f(){
         -iname "*$1"
     else
         find . -not -name "*.png" -not -name "*.jpg" -not -name "*.gif" \
-        -not -name "*.json" -not -name "*.js" -not -name "*.vue" \
+        -not -name "*.json" -not -name "*.js" -not -name "*.vue" -not -name "*.map"  \
         -not -path "./.git/*" \
+        -not -path "./logs/*" \
         -not -path "./.logs/*" \
         -not -path "./wwwroot/manager/web/*" \
         -not -path "./standapi/*" \
