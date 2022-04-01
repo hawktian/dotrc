@@ -111,11 +111,17 @@ function gitb(){
 }
 
 function p(){
+    argv=("$@")
     if [ $# -eq 0 ]
-          then
-              echo "No arguments supplied"
+    then
+        echo "No arguments supplied"
     fi
-    grep -iRl $1 . --include "*.php" --exclude-dir="logs"
+    cmd="grep -iRl $1 . "
+    for ((i=2; i<=$#; i++))
+    do
+        cmd+=" --include \"*.${argv[i]}\" "
+    done
+    cmd
 }
 
 function pv(){
@@ -236,3 +242,7 @@ function gcps(){
 source ~/MelonRC/zsh/alias
 source ~/MelonRC/zsh/color
 source ~/.alias.local
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

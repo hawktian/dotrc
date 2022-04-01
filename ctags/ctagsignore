@@ -10,3 +10,6 @@ wwwroot/weixin
 *.css
 *.vue
 *.sql
+.git
+frontend
+web
