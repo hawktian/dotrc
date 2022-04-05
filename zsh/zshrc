@@ -110,26 +110,39 @@ function gitb(){
     fi
 }
 
-function p(){
+function p() {
     argv=("$@")
     if [ $# -eq 0 ]
     then
         echo "No arguments supplied"
     fi
-    cmd="grep -iRl $1 . "
+    cmd="grep -iRl $1 ."
+
     for ((i=2; i<=$#; i++))
-    do
-        cmd+=" --include \"*.${argv[i]}\" "
-    done
-    cmd
+        do
+            cmd=$cmd" --include \"*.${argv[i]}\" "
+        done
+    cmd=$cmd" --exclude-dir=logs"
+    echo $cmd
+    eval $cmd
 }
 
-function pv(){
+function pv() {
+    argv=("$@")
     if [ $# -eq 0 ]
-          then
-              echo "No arguments supplied"
+    then
+        echo "No arguments supplied"
     fi
-    vim -p $(grep -Rl $1 . --include "*.php" --exclude-dir="logs") +/$1
+    cmd="grep -iRl $1 ."
+
+    for ((i=2; i<=$#; i++))
+        do
+            cmd=$cmd" --include \"*.${argv[i]}\" "
+        done
+    cmd=$cmd" --exclude-dir=logs"
+    cmd="vim -p \$($cmd) +/\$1"
+    echo $cmd
+    eval $cmd
 }
 
 function f(){
