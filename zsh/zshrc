@@ -124,6 +124,8 @@ function p() {
         done
     cmd=$cmd" --exclude-dir=logs"
     cmd=$cmd" --exclude=tags"
+    cmd=$cmd" --exclude=vendor"
+    cmd=$cmd" --exclude=.git"
     echo $cmd
     eval $cmd
 }
