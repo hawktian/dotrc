@@ -123,6 +123,7 @@ function p() {
             cmd=$cmd" --include \"*.${argv[i]}\" "
         done
     cmd=$cmd" --exclude-dir=logs"
+    cmd=$cmd" --exclude=tags"
     echo $cmd
     eval $cmd
 }
@@ -140,6 +141,7 @@ function pv() {
             cmd=$cmd" --include \"*.${argv[i]}\" "
         done
     cmd=$cmd" --exclude-dir=logs"
+    cmd=$cmd" --exclude=tags"
     cmd="vim -p \$($cmd) +/\$1"
     echo $cmd
     eval $cmd
@@ -228,12 +230,14 @@ function fv(){
 function glob(){
     remote=`git remote show`
     branch=` git branch --show-current`
+    echo "git pull $remote $branch"
     git pull $remote $branch
 }
 
 function ghob(){
     remote=`git remote show`
     branch=` git branch --show-current`
+    echo "git push $remote $branch"
     git push $remote $branch
 }
 
