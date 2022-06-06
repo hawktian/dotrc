@@ -97,7 +97,7 @@ function gitb(){
         echo "git add";
         git add .
         echo "git commit";
-        git commit -m "a"
+        git commit -m "fix"
         echo "git pull origin ${branch}";
         git pull origin ${branch}
         if [ -z "$(git status --porcelain)" ]; then
@@ -116,16 +116,17 @@ function p() {
     then
         echo "No arguments supplied"
     fi
-    cmd="grep -iRl $1 ."
+    cmd="grep -iRl '$1' ."
 
     for ((i=2; i<=$#; i++))
         do
             cmd=$cmd" --include \"*.${argv[i]}\" "
         done
-    cmd=$cmd" --exclude-dir=logs"
     cmd=$cmd" --exclude=tags"
-    cmd=$cmd" --exclude=vendor"
-    cmd=$cmd" --exclude=.git"
+    cmd=$cmd" --exclude-dir=logs"
+    cmd=$cmd" --exclude-dir=vendor"
+    cmd=$cmd" --exclude-dir=node_modules"
+    cmd=$cmd" --exclude-dir=.git"
     echo $cmd
     eval $cmd
 }
@@ -142,8 +143,11 @@ function pv() {
         do
             cmd=$cmd" --include \"*.${argv[i]}\" "
         done
-    cmd=$cmd" --exclude-dir=logs"
     cmd=$cmd" --exclude=tags"
+    cmd=$cmd" --exclude-dir=logs"
+    cmd=$cmd" --exclude-dir=vendor"
+    cmd=$cmd" --exclude-dir=node_modules"
+    cmd=$cmd" --exclude-dir=.git"
     cmd="vim -p \$($cmd) +/\$1"
     echo $cmd
     eval $cmd
