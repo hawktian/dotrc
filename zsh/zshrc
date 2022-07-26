@@ -124,6 +124,7 @@ function p() {
         done
     cmd=$cmd" --exclude=tags"
     cmd=$cmd" --exclude-dir=logs"
+    cmd=$cmd" --exclude-dir=tmp"
     cmd=$cmd" --exclude-dir=vendor"
     cmd=$cmd" --exclude-dir=node_modules"
     cmd=$cmd" --exclude-dir=.git"
@@ -145,6 +146,7 @@ function pv() {
         done
     cmd=$cmd" --exclude=tags"
     cmd=$cmd" --exclude-dir=logs"
+    cmd=$cmd" --exclude-dir=tmp"
     cmd=$cmd" --exclude-dir=vendor"
     cmd=$cmd" --exclude-dir=node_modules"
     cmd=$cmd" --exclude-dir=.git"
