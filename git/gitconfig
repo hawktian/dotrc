@@ -25,6 +25,7 @@
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol     
     autocrlf = false
 	editor = vim
+	quotePath = false
 [apply]
     whitespace = nowarn
 
@@ -38,6 +39,7 @@
     lp = log -p
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
     tree = log --all --graph --decorate=short --color --format=format:'%C(bold blue)%h%C(reset) %C(auto)%d%C(reset)\n         %C(black)[%cr]%C(reset)  %x09%C(black)%an: %s %C(reset)'
+    grso = git remote show origin
 
 [push]
     default = matching
@@ -45,7 +47,9 @@
     branch-build = true
 [user]
 	useconfigonly = true
-	email = 5@lfz.life
-	name = Tonvin
+	email = itonvin@gmail.com
+	name = Tonvin Tian
 [credential]
 	helper = store
+[http]
+	sslVerify = false

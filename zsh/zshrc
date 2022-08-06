@@ -97,7 +97,7 @@ function gitb(){
         echo "git add";
         git add .
         echo "git commit";
-        git commit -m "a"
+        git commit -m "fix"
         echo "git pull origin ${branch}";
         git pull origin ${branch}
         if [ -z "$(git status --porcelain)" ]; then
@@ -110,20 +110,49 @@ function gitb(){
     fi
 }
 
-function p(){
+function p() {
+    argv=("$@")
     if [ $# -eq 0 ]
-          then
-              echo "No arguments supplied"
+    then
+        echo "No arguments supplied"
     fi
-    grep -iRl $1 . --include "*.php" --exclude-dir="logs"
+    cmd="grep -iRl '$1' ."
+
+    for ((i=2; i<=$#; i++))
+        do
+            cmd=$cmd" --include \"*.${argv[i]}\" "
+        done
+    cmd=$cmd" --exclude=tags"
+    cmd=$cmd" --exclude-dir=logs"
+    cmd=$cmd" --exclude-dir=tmp"
+    cmd=$cmd" --exclude-dir=vendor"
+    cmd=$cmd" --exclude-dir=node_modules"
+    cmd=$cmd" --exclude-dir=.git"
+    echo $cmd
+    eval $cmd
 }
 
-function pv(){
+function pv() {
+    argv=("$@")
     if [ $# -eq 0 ]
-          then
-              echo "No arguments supplied"
+    then
+        echo "No arguments supplied"
     fi
-    vim -p $(grep -Rl $1 . --include "*.php" --exclude-dir="logs") +/$1
+    cmd="grep -iRl $1 ."
+
+    for ((i=2; i<=$#; i++))
+        do
+            cmd=$cmd" --include \"*.${argv[i]}\" "
+        done
+    cmd=$cmd" --exclude=tags"
+    cmd=$cmd" --exclude-dir=logs"
+    cmd=$cmd" --exclude-dir=tmp"
+    cmd=$cmd" --exclude-dir=vendor"
+    cmd=$cmd" --exclude-dir=node_modules"
+    cmd=$cmd" --exclude-dir=.git"
+    cmd="vim -p \$($cmd) +/\$1"
+    echo $cmd
+    eval $cmd
 }
 
 function f(){
@@ -157,8 +186,9 @@ function f(){
         -iname "*$1"
     else
         find . -not -name "*.png" -not -name "*.jpg" -not -name "*.gif" \
-        -not -name "*.json" -not -name "*.js" -not -name "*.vue" \
+        -not -name "*.json" -not -name "*.js" -not -name "*.vue" -not -name "*.map"  \
         -not -path "./.git/*" \
+        -not -path "./logs/*" \
         -not -path "./.logs/*" \
         -not -path "./wwwroot/manager/web/*" \
         -not -path "./standapi/*" \
@@ -208,12 +238,14 @@ function fv(){
 function glob(){
     remote=`git remote show`
     branch=` git branch --show-current`
+    echo "git pull $remote $branch"
     git pull $remote $branch
 }
 
 function ghob(){
     remote=`git remote show`
     branch=` git branch --show-current`
+    echo "git push $remote $branch"
     git push $remote $branch
 }
 
@@ -235,3 +267,7 @@ function gcps(){
 source ~/MelonRC/zsh/alias
 source ~/MelonRC/zsh/color
 source ~/.alias.local
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
