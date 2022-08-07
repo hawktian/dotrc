@@ -77,6 +77,7 @@ set tags=./tags;,tags;
 set autochdir
 set shell=/usr/bin/zsh
 set switchbuf=newtab
+set showmode
 
 
 map <C-S> :!/bin/sh %<CR>
