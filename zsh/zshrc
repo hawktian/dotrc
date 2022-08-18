@@ -235,7 +235,7 @@ function fv(){
     fi
 }
 
-function grs(){
+function grso(){
     remote=`git remote show`
     echo "git remote show $remote"
     git remote show $remote
