@@ -235,6 +235,13 @@ function fv(){
     fi
 }
 
+function grs(){
+    remote=`git remote show`
+    echo "git remote show $remote"
+    git remote show $remote
+}
+
+
 function glob(){
     remote=`git remote show`
     branch=` git branch --show-current`
