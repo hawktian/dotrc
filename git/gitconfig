@@ -1,23 +1,12 @@
+[include]
+    path=~/.local/git
+
 [color]
     ui = auto
     diff = auto
     status = auto
     branch = auto
     interactive = auto
-;[color "branch"]
-    ;current = yellow reverse
-    ;local = yellow
-    ;remote = green
-;[color "diff"]
-    ;meta = yellow bold
-    ;frag = magenta bold
-    ;old = red bold
-    ;new = green bold
-;[color "status"]
-    ;added = yellow
-    ;changed = green
-    ;untracked = cyan
-
 
 [color "diff"]
     whitespace = red reverse
@@ -28,7 +17,6 @@
 	quotePath = false
 [apply]
     whitespace = nowarn
-
 
 [alias]
     st = status
@@ -44,10 +32,6 @@
     default = matching
 [ampify]
     branch-build = true
-[user]
-	useconfigonly = true
-	email = itonvin@gmail.com
-	name = Tonvin Tian
 [credential]
 	helper = store
 [http]
