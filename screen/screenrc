@@ -29,3 +29,5 @@ defflow off
 #rvm needs this
 #shell -${SHELL}
 escape ^oo
+
+defdynamictitle on
