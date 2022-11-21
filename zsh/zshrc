@@ -228,6 +228,11 @@ function f(){
     fi
 }
 
+function gs(){
+    git st
+}
+
+
 function fv(){
     if [ $# -eq 0 ]
           then
@@ -271,6 +276,15 @@ function gfr(){
     fi
     remote=`git remote show`
     git fetch $remote $branch
+}
+
+function t(){
+    level=$1
+    if [ $level="" ]
+        then 
+            level=1
+    fi
+    tree -L $level
 }
 
 #check modified php file syntax
