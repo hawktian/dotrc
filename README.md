@@ -1,2 +1,1 @@
-# MelonRC
-Linux software config include vim zsh screen etc.
+Linux shell configs for vim zsh screen git etc.

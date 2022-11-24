@@ -1,0 +1,13 @@
+log
+logs
+tmp
+cache
+node_modules
+public/build
+public/hot
+public/storage
+vendor
+.fleet
+.idea
+.vscode
+.git
