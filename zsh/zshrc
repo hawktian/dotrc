@@ -147,29 +147,6 @@ function p() {
     eval $cmd
 }
 
-function pv() {
-    argv=("$@")
-    if [ $# -eq 0 ]
-    then
-        echo "No arguments supplied"
-    fi
-    cmd="grep -iRl $1 ."
-
-    for ((i=2; i<=$#; i++))
-        do
-            cmd=$cmd" --include \"*.${argv[i]}\" "
-        done
-    cmd=$cmd" --exclude=tags"
-    cmd=$cmd" --exclude-dir=logs"
-    cmd=$cmd" --exclude-dir=tmp"
-    cmd=$cmd" --exclude-dir=vendor"
-    cmd=$cmd" --exclude-dir=node_modules"
-    cmd=$cmd" --exclude-dir=.git"
-    cmd="vim -p \$($cmd) +/\$1"
-    echo $cmd
-    eval $cmd
-}
-
 function f(){
     file=$1
     if [ $# -eq 0 ]
