@@ -58,7 +58,6 @@ ZSH_THEME="melon"
 plugins=(
     git
     bundler
-    dotenv
     rake
     screen
 )
@@ -129,12 +128,21 @@ function p() {
         do
             cmd=$cmd" --include \"*.${argv[i]}\" "
         done
-    cmd=$cmd" --exclude=tags"
-    cmd=$cmd" --exclude-dir=logs"
-    cmd=$cmd" --exclude-dir=tmp"
-    cmd=$cmd" --exclude-dir=vendor"
-    cmd=$cmd" --exclude-dir=node_modules"
-    cmd=$cmd" --exclude-dir=.git"
+    if [ -e ~/.grep-exclude ]
+    then
+        while read exclude
+        do
+            cmd=$cmd" --exclude="$exclude
+        done < ~/.grep-exclude
+    fi
+
+    if [ -e ~/.grep-exclude-dir ]
+    then
+        while read excludedir
+        do
+            cmd=$cmd" --exclude-dir="$excludedir
+        done < ~/.grep-exclude-dir
+    fi
     echo $cmd
     eval $cmd
 }
@@ -273,14 +281,17 @@ function gfr(){
     git fetch $remote $branch
 }
 
+function gs(){
+	git st
+}
+
 #check modified php file syntax
 function gcps(){
     git ls-files --modified | xargs -L1 php -l
 }
 
-source ~/MelonRC/zsh/alias
 source ~/MelonRC/zsh/color
-source ~/.alias.local
+source ~/.alias
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

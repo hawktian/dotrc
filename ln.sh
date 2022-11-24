@@ -1,18 +1,25 @@
 #!/bin/zsh
-rm /root/.vimrc
-ln -s /root/MelonRC/vim/vimrc /root/.vimrc
 
-rm /root/.zshrc
-ln -s /root/MelonRC/zsh/zshrc /root/.zshrc
+root="/root/"
 
-rm /root/.screenrc
-ln -s /root/MelonRC/screen/screenrc /root/.screenrc
+rm -i $root".vimrc"
+ln -s $root"MelonRC/vim/vimrc" $root".vimrc"
 
-rm /root/.gitconfig
-ln -s /root/MelonRC/git/gitconfig /root/.gitconfig
+mkdir -p $root".vim/colors/"
+cp $root"MelonRC/vim/melon.vim" $root".vim/colors/"
 
-mkdir -p /root/.vim/colors/
-cp /root/MelonRC/vim/melon.vim /root/.vim/colors/
+rm -i $root".zshrc"
+ln -s $root"MelonRC/zsh/zshrc" $root".zshrc"
 
-touch /root/.alias.local
-source /root/.zshrc
+rm $root".screenrc"
+ln -s $root"MelonRC/screen/screenrc" $root".screenrc"
+
+rm -i $root".gitconfig"
+ln -s $root"MelonRC/git/gitconfig" $root".gitconfig"
+
+cp $root"MelonRC/grep/exclude" $root".grep-exclude"
+cp $root"MelonRC/grep/exclude-dir" $root".grep-exclude-dir"
+
+cp $root"MelonRC/zsh/alias" $root".alias"
+
+source $root".zshrc"
