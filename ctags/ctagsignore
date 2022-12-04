@@ -11,5 +11,6 @@ build
 *.txt
 *.csv
 *.pdf
+*.swp
 .git
 .fleet

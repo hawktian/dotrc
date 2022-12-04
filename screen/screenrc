@@ -18,11 +18,11 @@ defhstatus "screen ^E (^Et) | $USER@^EH"
 # but dont print i.e. "bell in window 0" status craps
 #hardstatus off
 
-shell                 zsh
-shelltitle "$ |bash"
+shell zsh
+shelltitle "zsh"
 
 hardstatus alwayslastline
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%{W}%c %{g}]'
+hardstatus string '%{= kG}[ %{G}%H %S %` %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%{W}%c %{g}]'
 
 defflow off
 
