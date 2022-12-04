@@ -232,22 +232,32 @@ function fv(){
     fi
 }
 
-function grso(){
-    remote=`git remote show`
-    echo "git remote show $remote"
-    git remote show $remote
+function grs(){
+    git remote show |
+    while IFS= read -r upstream; do
+        git remote show $upstream
+    done
 }
 
 
-function glrb(){
-    remote=`git remote show`
+
+function gl(){
+    remote=$1
+    if [ -z $remote ]
+        then
+            remote=$(git remote show | xargs | cut -d " " -f1)
+    fi
     branch=` git branch --show-current`
     echo "git pull $remote $branch"
     git pull $remote $branch
 }
 
-function ghrb(){
-    remote=`git remote show`
+function gh(){
+    remote=$1
+    if [ -z $remote ]
+        then
+            remote=$(git remote show | xargs | cut -d " " -f1)
+    fi
     branch=` git branch --show-current`
     echo "git push $remote $branch"
     git push $remote $branch
@@ -265,7 +275,7 @@ function gfr(){
 
 function t(){
     level=$1
-    if [ $level="" ]
+    if [ -z $level ]
         then 
             level=1
     fi
