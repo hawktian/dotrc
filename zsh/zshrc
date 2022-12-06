@@ -217,7 +217,6 @@ function gs(){
     git st
 }
 
-
 function fv(){
     if [ $# -eq 0 ]
           then
@@ -282,8 +281,15 @@ function t(){
     tree -L $level
 }
 
-function gs(){
-	git st
+#screen
+function sn(){
+    session=$1
+    if [ -z $session ]
+        then
+            screen -ls
+        else
+            screen -rD $session
+    fi
 }
 
 #check modified php file syntax
