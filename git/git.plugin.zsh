@@ -60,7 +60,7 @@ function git_develop_branch() {
 
 alias g='git'
 
-alias ga='git add'
+alias ga='git add .'
 alias gaa='git add --all'
 alias gapa='git add --patch'
 alias gau='git add --update'
@@ -82,7 +82,7 @@ alias gbsg='git bisect good'
 alias gbsr='git bisect reset'
 alias gbss='git bisect start'
 
-alias gc='git commit -v'
+alias gc='git commit -m "fix"'
 alias gc!='git commit -v --amend'
 alias gcn='git commit -v --no-edit'
 alias gcn!='git commit -v --no-edit --amend'
@@ -145,7 +145,7 @@ alias gfo='git fetch origin'
 
 alias gfg='git ls-files | grep'
 
-alias gg='git gui citool'
+alias gg='git log'
 alias gga='git gui citool --amend'
 
 function ggf() {
@@ -261,7 +261,6 @@ alias grm='git rm'
 alias grmc='git rm --cached'
 alias grmv='git remote rename'
 alias grrm='git remote remove'
-alias grs='git restore'
 alias grset='git remote set-url'
 alias grss='git restore --source'
 alias grst='git restore --staged'
