@@ -22,7 +22,10 @@ cp $root"dotrc/grep/exclude-dir" $root".grep-exclude-dir"
 
 cp $root"dotrc/zsh/melon.zsh-theme" $root".oh-my-zsh/custom/themes/"
 
-mkdir $root".oh-my-zsh/custom/plugins/git"
+if [ ! -d $root".oh-my-zsh/custom/plugins/git" ]
+then
+    mkdir $root".oh-my-zsh/custom/plugins/git"
+fi
 cp $root"dotrc/git/git.plugin.zsh" $root".oh-my-zsh/custom/plugins/git/"
 
 cp $root"dotrc/zsh/alias" $root".alias"
