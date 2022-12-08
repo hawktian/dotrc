@@ -246,7 +246,7 @@ function gl(){
         then
             remote=$(git remote show | xargs | cut -d " " -f1)
     fi
-    branch=` git branch --show-current`
+    branch=`git branch --show-current`
     echo "git pull $remote $branch"
     git pull $remote $branch
 }
