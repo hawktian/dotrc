@@ -297,8 +297,21 @@ function gcps(){
     git ls-files --modified | xargs -L1 php -l
 }
 
+function v() {
+    if [ ! -z $(command -v nvim) ]
+    then
+        nvim "$@"
+    else
+        if [ ! -z $(command -v vim) ]
+        then
+            vim "$@"
+        fi
+    fi
+}
+
 source ~/dotrc/zsh/color
 source ~/.alias
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
