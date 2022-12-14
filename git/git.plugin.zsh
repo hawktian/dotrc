@@ -82,7 +82,6 @@ alias gbsg='git bisect good'
 alias gbsr='git bisect reset'
 alias gbss='git bisect start'
 
-alias gc='git commit -m "fix"'
 alias gc!='git commit -v --amend'
 alias gcn='git commit -v --no-edit'
 alias gcn!='git commit -v --no-edit --amend'

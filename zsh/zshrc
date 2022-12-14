@@ -259,6 +259,13 @@ function gl(){
     done
 }
 
+#git commit
+function gc() {
+    message=$1
+    [ -z $message ] || message='nocommit'
+    git commit -m $message
+}
+
 # git push to paramete specified remote or all remotes
 function gh(){
     branch=`git branch --show-current`
