@@ -322,6 +322,26 @@ function gcps(){
     git ls-files --modified | xargs -L1 php -l
 }
 
+# map vim to nvim
+function vim() {
+    if [ ! -z $(command -v nvim) ]
+    then
+        echo "neovim $@"
+        sleep 0.3
+        nvim "$@"
+    else
+        if [ ! -z $(command -v vim) ]
+        then
+            echo "vim $@"
+            sleep 0.3
+            vim "$@"
+        else
+            echo "please install vim"
+        fi
+    fi
+}
+
+
 # map v to nvim first vim second
 function v() {
     if [ ! -z $(command -v nvim) ]
