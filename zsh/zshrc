@@ -238,28 +238,46 @@ function grs(){
     done
 }
 
-
-
+# git pull from paramete specified remote or all remotes
 function gl(){
-    remote=$1
-    if [ -z $remote ]
-        then
-            remote=$(git remote show | xargs | cut -d " " -f1)
-    fi
     branch=`git branch --show-current`
-    echo "git pull $remote $branch"
-    git pull $remote $branch
+    [ $? -ne 0 ] && return
+    if [ ! -z $1 ]
+        then
+            for remote in "$@"
+            do
+                echo "git pull $remote $branch"
+                git pull $remote $branch
+            done
+            return
+    fi
+
+    git remote show |
+    while IFS= read -r remote; do
+        echo "git pull $remote $branch"
+        git pull $remote $branch
+    done
 }
 
+# git push to paramete specified remote or all remotes
 function gh(){
-    remote=$1
-    if [ -z $remote ]
+    branch=`git branch --show-current`
+    [ $? -ne 0 ] && return
+    if [ ! -z $1 ]
         then
-            remote=$(git remote show | xargs | cut -d " " -f1)
+            for remote in "$@"
+            do
+                echo "git push $remote $branch"
+                git push $remote $branch
+            done
+            return
     fi
-    branch=` git branch --show-current`
-    echo "git push $remote $branch"
-    git push $remote $branch
+
+    git remote show |
+    while IFS= read -r remote; do
+        echo "git push $remote $branch"
+        git push $remote $branch
+    done
 }
 
 function gfr(){
@@ -297,14 +315,21 @@ function gcps(){
     git ls-files --modified | xargs -L1 php -l
 }
 
+# map v to nvim first vim second
 function v() {
     if [ ! -z $(command -v nvim) ]
     then
+        echo "neovim $@"
+        sleep 0.3
         nvim "$@"
     else
         if [ ! -z $(command -v vim) ]
         then
+            echo "vim $@"
+            sleep 0.3
             vim "$@"
+        else
+            echo "please install vim"
         fi
     fi
 }
