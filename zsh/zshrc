@@ -262,7 +262,7 @@ function gl(){
 #git commit
 function gc() {
     message=$1
-    [ -z $message ] || message='nocommit'
+    [ -z $message ] && message='nocommit'
     git commit -m $message
 }
 
