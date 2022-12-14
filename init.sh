@@ -37,6 +37,9 @@ then
 fi
 ln -s -f $root"dotrc/screen/screen.plugin.zsh" $root".oh-my-zsh/custom/plugins/screen/screen.plugin.zsh"
 
+#tmux
+ln -s -f $root"/.tmux.conf.local" $root"dotrc/tmux/tmux.conf.local
+
 cp $root"dotrc/zsh/alias" $root".alias"
 
 . $root".zshrc"
