@@ -18,15 +18,24 @@ rm -i $root".gitconfig"
 ln -s $root"dotrc/git/gitconfig" $root".gitconfig"
 
 cp $root"dotrc/grep/exclude" $root".grep-exclude"
+
 cp $root"dotrc/grep/exclude-dir" $root".grep-exclude-dir"
 
 cp $root"dotrc/zsh/melon.zsh-theme" $root".oh-my-zsh/custom/themes/"
 
+#git
 if [ ! -d $root".oh-my-zsh/custom/plugins/git" ]
 then
     mkdir $root".oh-my-zsh/custom/plugins/git"
 fi
-cp $root"dotrc/git/git.plugin.zsh" $root".oh-my-zsh/custom/plugins/git/"
+ln -s -f $root"dotrc/git/git.plugin.zsh" $root".oh-my-zsh/custom/plugins/git/git.plugin.zsh"
+
+#screen
+if [ ! -d $root".oh-my-zsh/custom/plugins/screen" ]
+then
+    mkdir $root".oh-my-zsh/custom/plugins/screen"
+fi
+ln -s -f $root"dotrc/screen/screen.plugin.zsh" $root".oh-my-zsh/custom/plugins/screen/screen.plugin.zsh"
 
 cp $root"dotrc/zsh/alias" $root".alias"
 
