@@ -347,13 +347,13 @@ function v() {
     if [ ! -z $(command -v nvim) ]
     then
         echo "neovim $@"
-        sleep 0.3
+        sleep 0.5
         nvim "$@"
     else
         if [ ! -z $(command -v vim) ]
         then
             echo "vim $@"
-            sleep 0.3
+            sleep 0.5
             vim "$@"
         else
             echo "please install vim"
