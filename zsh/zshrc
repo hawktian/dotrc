@@ -260,7 +260,7 @@ function gl(){
 }
 
 #git commit
-function gc() {
+function gci() {
     message=$1
     [ -z $message ] && message='nocommit'
     git commit -m $message
