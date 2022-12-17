@@ -298,12 +298,16 @@ function gfr(){
 }
 
 function t(){
-    level=$1
-    if [ -z $level ]
-        then 
-            level=1
+    p1=$1
+    if [ -d $p1 ]
+    then
+        tree $p1
+    elif [ -z "${1//[1-9]}" ]
+    then
+        tree -L $1
+    else
+        tree -L 1
     fi
-    tree -L $level
 }
 
 #screen
@@ -321,26 +325,6 @@ function sn(){
 function gcps(){
     git ls-files --modified | xargs -L1 php -l
 }
-
-# map vim to nvim
-function vim() {
-    if [ ! -z $(command -v nvim) ]
-    then
-        echo "neovim $@"
-        sleep 0.3
-        nvim "$@"
-    else
-        if [ ! -z $(command -v vim) ]
-        then
-            echo "vim $@"
-            sleep 0.3
-            vim "$@"
-        else
-            echo "please install vim"
-        fi
-    fi
-}
-
 
 # map v to nvim first vim second
 function v() {
