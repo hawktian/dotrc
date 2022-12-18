@@ -297,6 +297,19 @@ function gfr(){
     git fetch $remote $branch
 }
 
+# git add
+function ga(){
+    if [ -f $1 ]
+    then
+        echo "git add $1"
+        git add $1
+    else
+        echo "git add ."
+        git add .
+    fi
+}
+
+# git diff
 function gd(){
     if [ -f $1 ]
     then
