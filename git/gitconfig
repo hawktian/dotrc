@@ -13,8 +13,9 @@
 [core]
     whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol     
     autocrlf = false
-	editor = vim
-	quotePath = false
+    editor = vim
+    quotePath = false
+    pager = "less -iXFR"
 [apply]
     whitespace = nowarn
 
