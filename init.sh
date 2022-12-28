@@ -38,10 +38,10 @@ fi
 ln -s -f $root"dotrc/screen/screen.plugin.zsh" $root".oh-my-zsh/custom/plugins/screen/screen.plugin.zsh"
 
 #tmux
-ln -s -f $root".tmux.conf" $root"dotrc/tmux/tmux.conf"
+ln -s -f  $root"dotrc/tmux/tmux.conf" $root".tmux.conf"
 
 #tmux powerlinerc
-ln -s -f $root".tmux-powerlinerc" $root"dotrc/tmux/tmux-powerlinerc"
+ln -s -f  $root"dotrc/tmux/tmux-powerlinerc" $root".tmux-powerlinerc"
 
 #tmux powerline theme
 ln -s -f $root"dotrc/tmux/tmux-powerline-theme-melon.sh" $root"tmux-powerline/themes/melon.sh"
