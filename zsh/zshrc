@@ -299,13 +299,15 @@ function gfr(){
 
 # git add
 function ga(){
-    if [ -f $1 ]
-    then
-        echo "git add $1"
-        git add $1
+    if [[ ! -z $1 ]]
+        then
+            echo "git add $1"
+            git add $1
     else
-        echo "git add ."
-        git add .
+        while read file; do
+            echo "git add $file"
+            git add $file 
+        done < <(git ls-files --modified)
     fi
 }
 
