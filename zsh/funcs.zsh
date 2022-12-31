@@ -151,3 +151,14 @@ function v() {
         fi
     fi
 }
+
+function ip() {
+    FILE=/root/ip
+    if test -f "$FILE"; then
+        echo 'cat '$FILE
+        cat $FILE
+    else
+        echo "curl https://yingshou.tech/myip/"
+        curl https://yingshou.tech/myip/
+    fi
+}
