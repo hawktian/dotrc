@@ -87,6 +87,7 @@ map <C-L> :!/usr/bin/php -ln %<CR>
 map <C-F> :!/usr/bin/php -f %<CR>
 map <C-P> :!/usr/bin/python3 %<CR>
 map <C-C> :!g++ % -otmp && ./tmp<CR>
+map <C-N> :!node %<CR>
 map <C-G> :!go run %<CR>
 
 let mapleader = ","
