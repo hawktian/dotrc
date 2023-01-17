@@ -98,8 +98,13 @@ function ga(){
     else
         while read file; do
             echo "git add $file"
-            git add $file 
+            git add $file
         done < <(git ls-files --modified)
+
+        while read file; do
+            echo "git add $file"
+            git add $file
+        done < <(git ls-files --others --exclude-standard)
     fi
 }
 
