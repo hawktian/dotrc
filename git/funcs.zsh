@@ -122,3 +122,7 @@ function gd(){
 function gcps(){
     git ls-files --modified | xargs -L1 php -l
 }
+
+function ggg(){
+    ga && gci && gl && gh
+}
