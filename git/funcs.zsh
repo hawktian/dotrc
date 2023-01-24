@@ -20,6 +20,7 @@ function gitb(){
 }
 
 function gs(){
+    iecho "git status"
     git status
 }
 
@@ -38,7 +39,7 @@ function gl(){
         then
             for remote in "$@"
             do
-                echo "git pull $remote $branch"
+                iecho "git pull $remote $branch"
                 git pull $remote $branch
             done
             return
@@ -46,15 +47,20 @@ function gl(){
 
     git remote show |
     while IFS= read -r remote; do
-        echo "git pull $remote $branch"
+        iecho "git pull $remote $branch"
         git pull $remote $branch
     done
+}
+
+function iecho() {
+    echo "****** $1 ******"
 }
 
 #git commit
 function gci() {
     message=$1
     [ -z $message ] && message='nocommit'
+    iecho "git commit -m $message"
     git commit -m $message
 }
 
@@ -66,7 +72,7 @@ function gh(){
         then
             for remote in "$@"
             do
-                echo "git push $remote $branch"
+                iecho "git push $remote $branch"
                 git push $remote $branch
             done
             return
@@ -74,7 +80,7 @@ function gh(){
 
     git remote show |
     while IFS= read -r remote; do
-        echo "git push $remote $branch"
+        iecho "git push $remote $branch"
         git push $remote $branch
     done
 }
@@ -93,16 +99,16 @@ function gfr(){
 function ga(){
     if [[ ! -z $1 ]]
         then
-            echo "git add $1"
+            iecho "git add $1"
             git add $1
     else
         while read file; do
-            echo "git add $file"
+            iecho "git add $file"
             git add $file
         done < <(git ls-files --modified)
 
         while read file; do
-            echo "git add $file"
+            iecho "git add $file"
             git add $file
         done < <(git ls-files --others --exclude-standard)
     fi
