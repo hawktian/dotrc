@@ -6,4 +6,4 @@ alias ab='for l in {a..z} ; do echo $l;done;';
 
 alias curlx="curl -x socks5h://$proxyhost:$proxyport";
 
-alias wgetx="wget -e use_proxy=yes -e http_proxy=$proxyhost:$proxyport -e https_proxy=$proxyhost:$proxyport";
+alias wgetx="wget -e http_proxy=$proxyhost:$proxyport";
