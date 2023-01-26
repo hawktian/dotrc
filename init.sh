@@ -46,6 +46,11 @@ ln -s -f  $root"dotrc/tmux/tmux-powerlinerc" $root".tmux-powerlinerc"
 #tmux powerline theme
 ln -s -f $root"dotrc/tmux/tmux-powerline-theme-melon.sh" $root"tmux-powerline/themes/melon.sh"
 
-cp $root"dotrc/zsh/alias" $root".alias"
+if [ ! -d "/root/.alias" ]
+    then
+        mkdir ~/.alias
+fi
+
+ln -s -f $root"dotrc/alias/common" $root".alias/common"
 
 . $root".zshrc"

@@ -1,5 +1,6 @@
 [include]
-    path=~/.local/git
+    path=~/.git/common
+    path=~/.git/custom
 
 [color]
     ui = auto

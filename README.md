@@ -32,6 +32,9 @@ tmux a -t S1
 git clone https://github.com/neovim/neovim.git
 cd neovim
 git checkout release-0.8
+apt install gcc
+apt install cmake
+apt install pkg-config
 make CMAKE_BUILD_TYPE=Release
 sudo make install
 
