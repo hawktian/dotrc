@@ -162,3 +162,16 @@ function ip() {
         curl https://yingshou.tech/myip/
     fi
 }
+
+#delete file can not recover
+function rm0() {
+    FILE=$1
+    if test -f "$FILE"; then
+        echo "chattr +s $FILE"
+        chattr +s $FILE
+        echo "rm $FILE"
+        rm $FILE
+    else
+        echo "file not exists."
+    fi
+}
