@@ -7,4 +7,4 @@ export LC_CTYPE=en_US.UTF-8
 . ~/dotrc/zsh/color
 . ~/dotrc/zsh/funcs.zsh
 . ~/dotrc/git/funcs.zsh
-. ~/dotrc/alias/*
+. ~/.alias/*
