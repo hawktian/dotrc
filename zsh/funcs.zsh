@@ -3,6 +3,7 @@ function p() {
     if [ $# -eq 0 ]
     then
         echo "No arguments supplied"
+        return
     fi
     cmd="grep -iRl '$1' ."
 
@@ -152,7 +153,7 @@ function v() {
     fi
 }
 
-function ip() {
+function ip1() {
     FILE=/root/ip
     if test -f "$FILE"; then
         echo 'cat '$FILE
