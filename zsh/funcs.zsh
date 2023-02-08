@@ -47,27 +47,18 @@ function f(){
         -not -path "./.git/*" \
         -not -path ".logs/*" \
         -not -path "./vendor/*" \
-        -not -path "./wwwroot/manager/web/*" \
-        -not -path "./standapi/*" \
-        -not -path "./bi/*" \
         -iname "*$1"
     elif [ -z "${file##*.js}" ] ;then
         find . -not -name "*.png" -not -name "*.jpg" -not -name "*.gif" \
         -not -name "*.php" -not -name "*.json" -not -name "*.vue" \
         -not -path "./.git/*" \
         -not -path ".logs/*" \
-        -not -path "./standapi/*" \
         -not -path "./bi/*" \
         -iname "*$1"
     else
         find . -not -name "*.png" -not -name "*.jpg" -not -name "*.gif" \
-        -not -name "*.json" -not -name "*.js" -not -name "*.vue" -not -name "*.map"  \
         -not -path "./.git/*" \
         -not -path "./logs/*" \
-        -not -path "./.logs/*" \
-        -not -path "./wwwroot/manager/web/*" \
-        -not -path "./standapi/*" \
-        -not -path "./bi/*" \
         -iname "*$1*"
     fi
     return
