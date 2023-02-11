@@ -167,3 +167,42 @@ function rm0() {
         echo "file not exists."
     fi
 }
+
+# map vim to nvim first vim second
+function vim() {
+    if [ ! -z $(command -v nvim) ]
+    then
+        echo "neovim $@"
+        sleep 0.5
+        nvim "$@"
+    else
+        if [ ! -z $(command -v vim) ]
+        then
+            echo "vim $@"
+            sleep 0.5
+            vim "$@"
+        else
+            echo "please install vim"
+        fi
+    fi
+}
+
+# map vi to vim
+function vi() {
+    if [ ! -z $(command -v vim) ]
+    then
+        echo "vim $@"
+        sleep 0.5
+        nvim "$@"
+    else
+        if [ ! -z $(command -v vi) ]
+        then
+            echo "vi $@"
+            sleep 0.5
+            vim "$@"
+        else
+            echo "please install vi"
+        fi
+    fi
+}
+
