@@ -47,27 +47,18 @@ function f(){
         -not -path "./.git/*" \
         -not -path ".logs/*" \
         -not -path "./vendor/*" \
-        -not -path "./wwwroot/manager/web/*" \
-        -not -path "./standapi/*" \
-        -not -path "./bi/*" \
         -iname "*$1"
     elif [ -z "${file##*.js}" ] ;then
         find . -not -name "*.png" -not -name "*.jpg" -not -name "*.gif" \
         -not -name "*.php" -not -name "*.json" -not -name "*.vue" \
         -not -path "./.git/*" \
         -not -path ".logs/*" \
-        -not -path "./standapi/*" \
         -not -path "./bi/*" \
         -iname "*$1"
     else
         find . -not -name "*.png" -not -name "*.jpg" -not -name "*.gif" \
-        -not -name "*.json" -not -name "*.js" -not -name "*.vue" -not -name "*.map"  \
         -not -path "./.git/*" \
         -not -path "./logs/*" \
-        -not -path "./.logs/*" \
-        -not -path "./wwwroot/manager/web/*" \
-        -not -path "./standapi/*" \
-        -not -path "./bi/*" \
         -iname "*$1*"
     fi
     return
@@ -176,3 +167,42 @@ function rm0() {
         echo "file not exists."
     fi
 }
+
+# map vim to nvim first vim second
+function vim() {
+    if [ ! -z $(command -v nvim) ]
+    then
+        echo "neovim $@"
+        sleep 0.5
+        nvim "$@"
+    else
+        if [ ! -z $(command -v vim) ]
+        then
+            echo "vim $@"
+            sleep 0.5
+            vim "$@"
+        else
+            echo "please install vim"
+        fi
+    fi
+}
+
+# map vi to vim
+function vi() {
+    if [ ! -z $(command -v vim) ]
+    then
+        echo "vim $@"
+        sleep 0.5
+        nvim "$@"
+    else
+        if [ ! -z $(command -v vi) ]
+        then
+            echo "vi $@"
+            sleep 0.5
+            vim "$@"
+        else
+            echo "please install vi"
+        fi
+    fi
+}
+
