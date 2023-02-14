@@ -206,3 +206,12 @@ function vi() {
     fi
 }
 
+
+function ins(){
+    if [[ ! -z $1 ]]
+        then
+            apt install $1
+    else
+        echo "please input package name"
+    fi
+}
