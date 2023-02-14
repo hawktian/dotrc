@@ -98,7 +98,6 @@ function gfr(){
 
 # git restore
 function ge(){
-{
     if [[ ! -z $1 ]]
         then
             iecho "git restore $1"
