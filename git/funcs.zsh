@@ -96,6 +96,21 @@ function gfr(){
     git fetch $remote $branch
 }
 
+# git restore
+function ge(){
+{
+    if [[ ! -z $1 ]]
+        then
+            iecho "git restore $1"
+            git restore $1
+    else
+        while read file; do
+            iecho "git restore $file"
+            git restore $file
+        done < <(git ls-files --modified)
+    fi
+}
+
 # git add
 function ga(){
     if [[ ! -z $1 ]]
