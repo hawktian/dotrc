@@ -187,24 +187,6 @@ function vim() {
     fi
 }
 
-# map vi to vim
-function vi() {
-    if [ ! -z $(command -v vim) ]
-    then
-        echo "vim $@"
-        sleep 0.5
-        nvim "$@"
-    else
-        if [ ! -z $(command -v vi) ]
-        then
-            echo "vi $@"
-            sleep 0.5
-            vim "$@"
-        else
-            echo "please install vi"
-        fi
-    fi
-}
 
 
 function ins(){
