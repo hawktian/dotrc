@@ -168,27 +168,6 @@ function rm0() {
     fi
 }
 
-# map vim to nvim first vim second
-function vim() {
-    if [ ! -z $(command -v nvim) ]
-    then
-        echo "neovim $@"
-        sleep 0.5
-        nvim "$@"
-    else
-        if [ ! -z $(command -v vim) ]
-        then
-            echo "vim $@"
-            sleep 0.5
-            vim "$@"
-        else
-            echo "please install vim"
-        fi
-    fi
-}
-
-
-
 function ins(){
     if [[ ! -z $1 ]]
         then
