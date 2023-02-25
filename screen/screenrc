@@ -17,6 +17,8 @@ defhstatus "screen ^E (^Et) | $USER@^EH"
 
 # but dont print i.e. "bell in window 0" status craps
 #hardstatus off
+#
+term screen-256color
 
 shell zsh
 shelltitle "zsh"
@@ -31,3 +33,5 @@ defflow off
 escape ^oo
 
 defdynamictitle on
+
+export TERM=xterm-256color
