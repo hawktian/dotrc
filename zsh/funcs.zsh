@@ -155,8 +155,13 @@ function ip1() {
         echo 'cat '$FILE
         cat $FILE
     else
+<<<<<<< HEAD
         echo "curl https://fig.red/myip/"
         curl https://fig.red/myip/
+=======
+        echo "curl https://t001.tech/myip/"
+        curl https://t001.tech/myip/
+>>>>>>> 421e59377d31bc42bd3ac92f61adb86f5d164966
     fi
 }
 
