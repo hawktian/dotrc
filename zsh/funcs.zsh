@@ -30,11 +30,16 @@ function p() {
     eval $cmd
 }
 
+function x() {
+    exit
+}
+
 function f(){
     file=$1
     if [ $# -eq 0 ]
           then
               echo "No arguments supplied"
+              return
     fi
     if [ -z "${file##*.vue}" ] ;then
         find . -not -name "*.json" -not -name "*.js" \
@@ -105,12 +110,12 @@ function t(){
     p1=$1
     if [ -d $p1 ]
     then
-        tree $p1
+        tree $p1 | more
     elif [ -z "${1//[1-9]}" ]
     then
-        tree -L $1
+        tree -L $1 | more
     else
-        tree -L 1
+        tree -L 1 | more
     fi
 }
 
@@ -150,8 +155,8 @@ function ip1() {
         echo 'cat '$FILE
         cat $FILE
     else
-        echo "curl https://yingshou.tech/myip/"
-        curl https://yingshou.tech/myip/
+        echo "curl https://fig.red/myip/"
+        curl https://fig.red/myip/
     fi
 }
 
@@ -187,9 +192,7 @@ function vim() {
     fi
 }
 
-
-
-function ins(){
+function i(){
     if [[ ! -z $1 ]]
         then
             apt install $1
