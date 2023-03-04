@@ -106,6 +106,16 @@ function fv(){
     fi
 }
 
+function h(){
+    if [ -z "${1//[1-9]}" ]
+    then
+            history | tail -{$1}
+    else
+            history | tail -100
+    fi
+}
+
+
 function t(){
     p1=$1
     if [ -d $p1 ]
@@ -155,13 +165,8 @@ function ip1() {
         echo 'cat '$FILE
         cat $FILE
     else
-<<<<<<< HEAD
         echo "curl https://fig.red/myip/"
         curl https://fig.red/myip/
-=======
-        echo "curl https://t001.tech/myip/"
-        curl https://t001.tech/myip/
->>>>>>> 421e59377d31bc42bd3ac92f61adb86f5d164966
     fi
 }
 
