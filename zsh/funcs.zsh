@@ -106,12 +106,12 @@ function fv(){
     fi
 }
 
-function h(){
-    if [ -z "${1//[1-9]}" ]
+function h() {
+    if [ $# -eq 0 ]
     then
-            history | tail -{$1}
-    else
             history | tail -100
+    else
+            history | tail -$1
     fi
 }
 
