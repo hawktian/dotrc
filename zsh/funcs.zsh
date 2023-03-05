@@ -210,3 +210,11 @@ function i(){
         echo "please input package name"
     fi
 }
+
+function c(){
+    if [ "e" = $1 ]; then
+        crontab -e
+    else
+        crontab -l
+    fi
+}
