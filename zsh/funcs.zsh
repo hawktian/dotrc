@@ -170,6 +170,12 @@ function ip1() {
     fi
 }
 
+#remove directories and their contents recursively
+function rmrf() {
+    rm -rf *
+}
+
+
 #delete file can not recover
 function rm0() {
     FILE=$1
