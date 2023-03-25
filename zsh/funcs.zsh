@@ -208,19 +208,78 @@ function vim() {
     fi
 }
 
-function i(){
-    if [[ ! -z $1 ]]
-        then
-            apt install $1
-    else
-        echo "please input package name"
-    fi
-}
-
 function c(){
     if [ "e" = $1 ]; then
         crontab -e
     else
         crontab -l
     fi
+}
+
+is_mac() {
+    [[ $OSTYPE == darwin* ]]
+}
+
+i() {
+    if is_mac; then
+        package_manager="brew"
+        desired_os=1
+        os="Mac"
+        return
+    fi
+
+    os_name="$(cat /etc/*-release | awk -F= '$1 == "NAME" { gsub(/"/, ""); print $2; exit }')"
+
+    case "$os_name" in
+        Ubuntu*|Pop!_OS)
+            desired_os=1
+            os="ubuntu"
+            package_manager="apt-get"
+            ;;
+        Amazon\ Linux*)
+            desired_os=1
+            os="amazon linux"
+            package_manager="yum"
+            ;;
+        Debian*)
+            desired_os=1
+            os="debian"
+            package_manager="apt-get"
+            ;;
+        Linux\ Mint*)
+            desired_os=1
+            os="linux mint"
+            package_manager="apt-get"
+            ;;
+        Red\ Hat*)
+            desired_os=1
+            os="red hat"
+            package_manager="yum"
+            ;;
+        CentOS*)
+            desired_os=1
+            os="centos"
+            package_manager="yum"
+            ;;
+        Rocky*)
+            desired_os=1
+            os="centos"
+            package_manager="yum"
+            ;;
+        SLES*)
+            desired_os=1
+            os="sles"
+            package_manager="zypper"
+            ;;
+        openSUSE*)
+            desired_os=1
+            os="opensuse"
+            package_manager="zypper"
+            ;;
+        *)
+            desired_os=0
+            os="Not Found: $os_name"
+    esac
+    echo "$package_manager install $1"
+    eval "$package_manager install $1"
 }
