@@ -105,8 +105,13 @@ function gitrestore(){
             git restore $1
     else
         while read file; do
-            iecho "git restore $file"
-            git restore $file
+			echo "Do you wish to restore ${file}?"
+			select yn in "Y" "N"; do
+			  case $yn in
+				"Y" ) git restore $file;;
+				"N" ) continue;;
+			  esac
+			done
         done < <(git ls-files --modified)
     fi
 }
