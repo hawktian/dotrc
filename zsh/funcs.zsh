@@ -216,6 +216,17 @@ function c(){
     fi
 }
 
+function dk(){
+    if [ $# -eq 0 ]; then
+        docker ps 
+    else
+        id=$1
+        id=$((id + 1))
+        name=$(docker ps | sed -n "$id"p | awk '{print $1}')
+        docker exec -it $name /bin/bash
+    fi
+}
+
 is_mac() {
     [[ $OSTYPE == darwin* ]]
 }

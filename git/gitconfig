@@ -17,6 +17,7 @@
     editor = vim
     quotePath = false
     pager = "less -iXFR"
+	filemode = true
 [apply]
     whitespace = nowarn
 
