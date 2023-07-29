@@ -106,11 +106,15 @@ function gitrestore(){
     else
         while read file; do
 			echo "Do you wish to restore ${file}?"
-			select yn in "Y" "N"; do
+			select yn in Y N; do
 			  case $yn in
-				"Y" ) git restore $file;;
-				"N" ) continue;;
+				Y ) 
+                    git restore $file
+                    ;;
+				N ) 
+                    ;;
 			  esac
+            break
 			done
         done < <(git ls-files --modified)
     fi
