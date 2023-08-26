@@ -1,0 +1,31 @@
+set relativenumber
+set history=30
+set ruler
+set nu
+set shiftwidth=4
+set autoindent
+set nobackup
+set ignorecase
+set nowrap
+set smartindent
+set tabstop=4
+set expandtab
+set smarttab
+set ts=4
+set fencs=utf-8,gbk
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,gb2312,ucs-bom,cp936,big5,latin1
+set termencoding=utf-8
+set laststatus=2
+set cmdheight=2
+set ff=unix
+set hlsearch
+set cursorline
+set statusline=%F%m%r%h%w
+set tabpagemax=32
+set autochdir
+set switchbuf=newtab
+set showmode
+map <C-L> :!/usr/bin/php -ln %<CR>
+map <C-F> :!/usr/bin/php -f %<CR>
