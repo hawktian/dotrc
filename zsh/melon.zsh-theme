@@ -35,9 +35,9 @@ PROMPT="╭─${user_host} ${current_dir} \$(ruby_prompt_info) ${git_branch}
 ╰─$PR_PROMPT "
 RPROMPT="${return_code}"
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}‹"
-ZSH_THEME_GIT_PROMPT_SUFFIX="› %f"
-ZSH_THEME_RUBY_PROMPT_PREFIX="%F{red}‹"
-ZSH_THEME_RUBY_PROMPT_SUFFIX="›%f"
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{yellow}<"
+ZSH_THEME_GIT_PROMPT_SUFFIX=">%f"
+ZSH_THEME_RUBY_PROMPT_PREFIX="%F{red}<"
+ZSH_THEME_RUBY_PROMPT_SUFFIX=">%f"
 
 }

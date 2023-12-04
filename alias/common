@@ -2,6 +2,8 @@ alias cp='cp -i'
 
 alias a='tmux a'
 
+alias b='tmux a -t b'
+
 alias py='/usr/bin/python3'
 
 alias abc='for l in {a..z} ; do echo $l;done;';

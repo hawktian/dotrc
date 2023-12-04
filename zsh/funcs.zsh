@@ -26,7 +26,6 @@ function p() {
             cmd=$cmd" --exclude-dir="$excludedir
         done < ~/.grep-exclude-dir
     fi
-    echo $cmd
     eval $cmd
 }
 
@@ -215,6 +214,15 @@ function c(){
         crontab -l
     fi
 }
+
+function redis(){
+    if [ $# -eq 0 ]; then
+        redis-cli -p 6379 --raw
+    else
+        redis-cli -p $1 --raw
+    fi
+}
+
 
 function dk(){
     if [ $# -eq 0 ]; then
