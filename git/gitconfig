@@ -39,3 +39,6 @@
 	helper = store
 [http]
 	sslVerify = false
+[user]
+	email = 5@lfz.life
+	name = Hawk Tian

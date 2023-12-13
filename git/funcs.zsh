@@ -24,6 +24,7 @@ function gs(){
     git status
 }
 
+unalias grs
 function grs(){
     git remote show |
     while IFS= read -r upstream; do
@@ -121,6 +122,7 @@ function gitrestore(){
 }
 
 # git add
+unalias ga
 function ga(){
     if [[ ! -z $1 ]]
         then

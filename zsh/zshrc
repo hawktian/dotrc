@@ -7,6 +7,6 @@ plugins=(git)
 . $ZSH/oh-my-zsh.sh
 . ~/dotrc/zsh/color
 . ~/dotrc/zsh/funcs.zsh
-. ~/dotrc/git/funcs.zsh
+. /root/dotrc/git/funcs.zsh
 . ~/.alias/common
 . ~/.alias/custom
