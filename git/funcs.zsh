@@ -33,6 +33,7 @@ function grs(){
 }
 
 # git pull from paramete specified remote or all remotes
+unalias gl
 function gl(){
     branch=`git branch --show-current`
     [ $? -ne 0 ] && return
