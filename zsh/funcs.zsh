@@ -164,8 +164,7 @@ function ip1() {
         echo 'cat '$FILE
         cat $FILE
     else
-        echo "curl https://fig.red/myip/"
-        curl https://fig.red/myip/
+        curl "https://yingshou.tech/ip/my/"
     fi
 }
 
@@ -282,4 +281,10 @@ i() {
     esac
     echo "$package_manager install $1"
     eval "$package_manager install $1"
+}
+
+#check modified php file syntax
+function gcps(){
+    git ls-files --modified | xargs -L1 php -l
+    git ls-files --others --exclude-standard | xargs -L1 php -l
 }
