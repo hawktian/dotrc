@@ -91,19 +91,6 @@ function f(){
     fi
 }
 
-function fv(){
-    if [ $# -eq 0 ]
-          then
-              echo "No arguments supplied"
-    fi
-    string=$1
-    substr="."
-    if [ -z "${string##*$substr*}" ] ;then
-        vim -p $(find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1")
-    else
-        vim -p $(find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1*")
-    fi
-}
 
 function h() {
     if [ $# -eq 0 ]
@@ -139,33 +126,29 @@ function sn(){
     fi
 }
 
-# map v to nvim first vim second
+# map v to lvim/nvim/vim/vi
 function v() {
-    if [ ! -z $(command -v nvim) ]
-    then
-        echo "neovim $@"
-        sleep 0.5
-        nvim "$@"
-    else
-        if [ ! -z $(command -v vim) ]
-        then
-            echo "vim $@"
-            sleep 0.5
-            vim "$@"
-        else
-            echo "please install vim"
-        fi
-    fi
+	if [ ! -z $(command -v lvim) ]; then
+		echo "lvim $@"
+		sleep 0.5
+		lvim "$@"
+	elif [ ! -z $(command -v nvim) ]; then
+		echo "nvim $@"
+		sleep 0.5
+		lvim "$@"
+	elif [ ! -z $(command -v vim) ]; then
+		echo "vim $@"
+		sleep 0.5
+		vim "$@"
+	elif [ ! -z $(command -v vi) ]; then
+		echo "vi $@"
+		sleep 0.5
+		vi "$@"
+	fi
 }
 
-function ip1() {
-    FILE=/root/ip
-    if test -f "$FILE"; then
-        echo 'cat '$FILE
-        cat $FILE
-    else
-        curl "https://yingshou.tech/ip/my/"
-    fi
+function myip() {
+	curl "https://yingshou.tech/ip/my/"
 }
 
 #remove directories and their contents recursively
@@ -283,7 +266,7 @@ i() {
     eval "$package_manager install $1"
 }
 
-#check modified php file syntax
+#synctax check for modified PHP files
 function gcps(){
     git ls-files --modified | xargs -L1 php -l
     git ls-files --others --exclude-standard | xargs -L1 php -l
