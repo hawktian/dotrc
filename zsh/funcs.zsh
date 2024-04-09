@@ -91,20 +91,6 @@ function f(){
     fi
 }
 
-function fv(){
-    if [ $# -eq 0 ]
-          then
-              echo "No arguments supplied"
-    fi
-    string=$1
-    substr="."
-    if [ -z "${string##*$substr*}" ] ;then
-        vim -p $(find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1")
-    else
-        vim -p $(find .  -not -name "*.json" -not -name "*.js" -not -name "*.vue" ! -path "./logs/*" ! -path "./wwwroot/manager/web/*" -iname "*$1*")
-    fi
-}
-
 function h() {
     if [ $# -eq 0 ]
     then
