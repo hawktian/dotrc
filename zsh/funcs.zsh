@@ -134,7 +134,7 @@ function v() {
 	elif [ ! -z $(command -v nvim) ]; then
 		echo "nvim $@"
 		sleep 0.5
-		lvim "$@"
+		nvim "$@"
 	elif [ ! -z $(command -v vim) ]; then
 		echo "vim $@"
 		sleep 0.5
