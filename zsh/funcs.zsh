@@ -127,25 +127,33 @@ function sn(){
 }
 
 # map v to lvim/nvim/vim/vi
+
+
 function v() {
-	if [ ! -z $(command -v lvim) ]; then
-		echo "lvim $@"
-		sleep 0.5
-		lvim "$@"
-	elif [ ! -z $(command -v nvim) ]; then
-		echo "nvim $@"
-		sleep 0.5
-		lvim "$@"
-	elif [ ! -z $(command -v vim) ]; then
-		echo "vim $@"
-		sleep 0.5
-		vim "$@"
-	elif [ ! -z $(command -v vi) ]; then
-		echo "vi $@"
-		sleep 0.5
-		vi "$@"
-	fi
+    local editor
+
+    if editor=$(command -v lvim); then
+        echo "$editor $@"
+        sleep 0.5
+        "$editor" "$@"
+    elif editor=$(command -v nvim); then
+        echo "$editor $@"
+        sleep 0.5
+        "$editor" "$@"
+    elif editor=$(command -v vim); then
+        echo "$editor $@"
+        sleep 0.5
+        "$editor" "$@"
+    elif editor=$(command -v vi); then
+        echo "$editor $@"
+        sleep 0.5
+        "$editor" "$@"
+    else
+        echo "No suitable text editor found."
+        return 1
+    fi
 }
+
 
 function myip() {
 	curl "https://yingshou.tech/ip/my/"
