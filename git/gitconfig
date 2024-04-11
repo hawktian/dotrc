@@ -39,7 +39,7 @@
 	helper = store
 [http]
 	sslVerify = false
-	sslBackend = gnutls
+  #sslBackend = gnutls
 [user]
-	email = 5@lfz.life
+	email = itonvin@gmail.com
 	name = Hawk Tian
