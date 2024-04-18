@@ -69,25 +69,26 @@ function gci() {
 }
 
 # git push to paramete specified remote or all remotes
-function gh(){
-    branch=`git branch --show-current`
-    [ $? -ne 0 ] && return
-    if [ ! -z $1 ]
-        then
-            for remote in "$@"
-            do
-                iecho "git push $remote $branch"
-                git push $remote $branch
-            done
-            return
+
+function gh() {
+    branch=$(git branch --show-current 2>/dev/null)
+    if [ -z "$branch" ]; then
+        echo "Error: Not on any branch"
+        return 1
     fi
 
-    git remote show |
-    while IFS= read -r remote; do
-        iecho "git push $remote $branch"
-        git push $remote $branch
+    remotes=("$@")
+    if [ ${#remotes[@]} -eq 0 ]; then
+        remotes=$(git remote)
+    fi
+
+    for remote in "${remotes[@]}"; do
+        echo "git push $remote $branch"
+        git push "$remote" "$branch"
     done
 }
+
+
 
 function gfr(){
     branch=$1
