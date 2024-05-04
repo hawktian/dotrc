@@ -130,12 +130,7 @@ function sn(){
 
 function v() {
     local editor
-
-    if editor=$(command -v lvim); then
-        echo "$editor $@"
-        sleep 0.5
-        "$editor" "$@"
-    elif editor=$(command -v nvim); then
+    if editor=$(command -v nvim); then
         echo "$editor $@"
         sleep 0.5
         "$editor" "$@"
