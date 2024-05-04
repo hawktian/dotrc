@@ -71,23 +71,23 @@ function gci() {
 # git push to paramete specified remote or all remotes
 
 function gh() {
+    if [ ! -d ".git" ]; then  
+        echo "Current directory was not a git repository."
+        exit 1  
+    fi
+
     branch=$(git branch --show-current 2>/dev/null)
     if [ -z "$branch" ]; then
-        echo "Error: Not on any branch"
+        echo "Error: Not on any branch."
         return 1
     fi
 
-    remotes=("$@")
-    if [ ${#remotes[@]} -eq 0 ]; then
-        remotes=$(git remote)
-    fi
-
-    for remote in "${remotes[@]}"; do
+    git remote show |
+    while IFS= read -r remote; do
         echo "git push $remote $branch"
-        git push "$remote" "$branch"
+        git push $remote $branch
     done
 }
-
 
 
 function gfr(){
