@@ -190,9 +190,9 @@ function redis(){
 
 function tf(){
     if [ $# -eq 0 ]; then
-        tail -f  today.log
+        tail -F  today.log
     else
-        tail -f  $1
+        tail -F  $1
     fi
 }
 
