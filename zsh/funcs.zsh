@@ -188,6 +188,14 @@ function redis(){
     fi
 }
 
+function tf(){
+    if [ $# -eq 0 ]; then
+        tail -f  today.log
+    else
+        tail -f  $1
+    fi
+}
+
 
 function dk(){
     if [ $# -eq 0 ]; then
