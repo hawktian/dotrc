@@ -1,4 +1,4 @@
-ZSH_THEME="melon"
+ZSH_THEME="fino"
 DISABLE_AUTO_TITLE="true"
 plugins=(
     git
