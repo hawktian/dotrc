@@ -1,6 +1,6 @@
 alias cp='cp -i'
 
-alias a='tmux a'
+alias a='tmux a -t a'
 
 alias b='tmux a -t b'
 
