@@ -43,3 +43,5 @@
 [user]
 	email = itonvin@gmail.com
 	name = Hawk Tian
+[init]
+	defaultBranch = main
