@@ -7,9 +7,8 @@ function p() {
     fi
     cmd="grep -iRl '$1' ."
 
-    for ((i=2; i<=$#; i++))
-        do
-            cmd=$cmd" --include \"*.${argv[i]}\" "
+    for ((i=2; i <= $#; i++)); do
+            cmd=$cmd" --include \"*.${argv[i-1]}\" "
         done
     if [ -e ~/.grep-exclude ]
     then
@@ -26,7 +25,7 @@ function p() {
             cmd=$cmd" --exclude-dir="$excludedir
         done < ~/.grep-exclude-dir
     fi
-    eval $cmd
+    eval "$cmd"
 }
 
 function x() {
