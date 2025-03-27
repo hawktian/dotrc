@@ -12,5 +12,5 @@ source $ZSH/oh-my-zsh.sh
 . ~/dotrc/zsh/color
 . ~/dotrc/zsh/funcs.zsh
 . /root/dotrc/git/funcs.zsh
-. ~/.alias/common
+. /root/.alias/common
 . ~/.alias/custom
