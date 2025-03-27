@@ -2,7 +2,7 @@ function p() {
     argv=("$@")
     if [ $# -eq 0 ]
     then
-        echo "No arguments supplied"
+        echo "For example [p nil go], search nil keywords in go type files."
         return
     fi
     cmd="grep -iRl '$1' ."
