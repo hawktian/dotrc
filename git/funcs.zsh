@@ -1,24 +1,3 @@
-function gitb(){
-    branch=`git symbolic-ref --short HEAD`
-    echo "current branch:${branch}"
-    if [ -n "$(git status --porcelain)" ]; then
-        echo "there are modified files";
-        echo "git add";
-        git add .
-        echo "git commit";
-        git commit -m "fix"
-        echo "git pull origin ${branch}";
-        git pull origin ${branch}
-        if [ -z "$(git status --porcelain)" ]; then
-            git push origin ${branch}
-        else
-            echo "there are some errors after pulling from origin";
-        fi
-    else
-        git pull origin ${branch}
-    fi
-}
-
 function gs(){
     iecho "git status"
     git status
