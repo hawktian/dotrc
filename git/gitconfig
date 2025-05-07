@@ -1,47 +1,44 @@
 [include]
-    path=~/.git/common
-    path=~/.git/custom
+path=~/.git/common
+path=~/.git/custom
 
 [color]
-    ui = auto
-    diff = auto
-    status = auto
-    branch = auto
-    interactive = auto
+ui = auto
+diff = auto
+status = auto
+branch = auto
+interactive = auto
 
 [color "diff"]
-    whitespace = red reverse
+whitespace = red reverse
 [core]
-    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol     
-    autocrlf = false
-    editor = vim
-    quotePath = false
-    pager = "less -iXFR"
-	filemode = true
+whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+autocrlf = false
+editor = vim
+quotePath = false
+pager = "less -iXFR"
+filemode = true
 [apply]
-    whitespace = nowarn
+whitespace = nowarn
 
 [alias]
-    st = status
-    ci = commit
-    br = branch
-    co = checkout
-    gp = log --date=\"short\" --format=\"%C(yellow)%h%Creset [%cN] %C(white)%ad%Creset %s\" --graph
-    lp = log -p
-    graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
-    tree = log --all --graph --decorate=short --color --format=format:'%C(bold blue)%h%C(reset) %C(auto)%d%C(reset)\n         %C(black)[%cr]%C(reset)  %x09%C(black)%an: %s %C(reset)'
+st = status
+ci = commit
+br = branch
+co = checkout
+gp = log --date=\"short\" --format=\"%C(yellow)%h%Creset [%cN] %C(white)%ad%Creset %s\" --graph
+lp = log -p
+graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+tree = log --all --graph --decorate=short --color --format=format:'%C(bold blue)%h%C(reset) %C(auto)%d%C(reset)\n         %C(black)[%cr]%C(reset)  %x09%C(black)%an: %s %C(reset)'
 
 [push]
-    default = matching
+default = matching
 [ampify]
-    branch-build = true
+branch-build = true
 [credential]
-	helper = store
+helper = store
 [http]
-	sslVerify = false
-  #sslBackend = gnutls
-[user]
-	email = itonvin@gmail.com
-	name = Hawk Tian
+sslVerify = false
+#sslBackend = gnutls
 [init]
-	defaultBranch = main
+defaultBranch = main
