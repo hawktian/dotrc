@@ -149,8 +149,10 @@ function v() {
 # edit modified files
 function vm() {
     local editor
-    local -a modified_files
-    mapfile -t modified_files < <(git diff --name-only --diff-filter=M)
+    local modified_files=()
+    while IFS= read -r line; do
+      modified_files+=("$line")
+    done < <(git diff --name-only --diff-filter=M)
 
     if editor=$(command -v nvim); then
         echo "$editor ${modified_files[*]}"
