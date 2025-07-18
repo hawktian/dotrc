@@ -124,8 +124,7 @@ function sn(){
     fi
 }
 
-# map v to lvim/nvim/vim/vi
-
+# map v to /vim/vim/vi
 
 function v() {
     local editor
@@ -141,6 +140,32 @@ function v() {
         echo "$editor $@"
         sleep 0.5
         "$editor" "$@"
+    else
+        echo "No suitable text editor found."
+        return 1
+    fi
+}
+
+# edit modified files
+function vm() {
+    local editor
+    local modified_files=()
+    while IFS= read -r line; do
+      modified_files+=("$line")
+    done < <(git diff --name-only --diff-filter=M)
+
+    if editor=$(command -v nvim); then
+        echo "$editor ${modified_files[*]}"
+        sleep 0.5
+        "$editor" "${modified_files[@]}"
+    elif editor=$(command -v vim); then
+        echo "$editor ${modified_files[*]}"
+        sleep 0.5
+        "$editor" "${modified_files[@]}"
+    elif editor=$(command -v vi); then
+        echo "$editor ${modified_files[*]}"
+        sleep 0.5
+        "$editor" "${modified_files[@]}"
     else
         echo "No suitable text editor found."
         return 1
