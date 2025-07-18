@@ -42,3 +42,6 @@ sslVerify = false
 #sslBackend = gnutls
 [init]
 defaultBranch = main
+[user]
+	email = itonvin@gmail.com
+	name = Hawk Tian
